@@ -11,11 +11,11 @@ int lastButtonState = 0;
 bool isPlaying = false;
 bool isWaiting = false;
 unsigned long currentIteration = 0;
+unsigned long knockTime = 0;
 unsigned long lastDebounceTime = 0;
+unsigned long noteTime = 0; 
 const unsigned long debounceDelay = 50;
 const unsigned long waitTime = 5000;
-unsigned long knockTime = 0;
-unsigned long noteTime = 0; 
 
 int melody[] {
   NOTE_A4, NOTE_A4, NOTE_A4, NOTE_F4, NOTE_C5, NOTE_A4, NOTE_F4, NOTE_C5, NOTE_A4, 0,

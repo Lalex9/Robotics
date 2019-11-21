@@ -147,7 +147,6 @@ void loop() {
     if (yValue >= minThreshold && yValue <= maxThreshold) {
       joyMoved = false;
     }
-    buttonReading();
   }
   else {
     xValue = analogRead(xAxisPin);
@@ -166,6 +165,6 @@ void loop() {
     if (xValue >= minThreshold && xValue <= maxThreshold) {
       joyMoved = false;
     }
-    buttonReading();
   }
+  buttonReading();
 }

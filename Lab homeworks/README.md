@@ -13,3 +13,10 @@ P.S. I used the 'pitches.h' header file with the notes and the melody for this a
 3. four7SegWithJoystikControl:
 
 Using a joystick, we can control a 4 digit number displayed on a 4 digits 7 segments. Moving the joystick left or right you select the digit you want to change, by pressing the button you confirm the digit, and then by moving up or down you can change the digit value.
+
+4. simpleGameMenuWithJoystick:
+
+A simple game menu displayed on an LCD controled with a joystick.
+
+Demo Video : https://youtu.be/4olzcPh0Wtg
+

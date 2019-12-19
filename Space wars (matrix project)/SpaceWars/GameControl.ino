@@ -1,3 +1,5 @@
+
+//Function called when the joystick is moved to the right or the button was pressed, with specific use for the context
 void accessCurrentMenu() {
   if (isFreezed)
     return;
@@ -31,6 +33,7 @@ void accessCurrentMenu() {
     freezeTime = millis();
     isFreezed = true;
     level = 0;
+    score = 0;
     return;
   }
   if (menuIndex == 1) {
@@ -56,6 +59,7 @@ void accessCurrentMenu() {
   }
 }
 
+//Function called when the joystick is moved to the left, with specific use for the context
 void exitCurrentMenu() {
   if (isPlaying) {
     if (millis() - lastPossitionChange > 100) {
@@ -95,6 +99,7 @@ void exitCurrentMenu() {
   }
 }
 
+//Function called when the joystick is moved up
 void upCurrentMenu() {
   if (isPlaying) {
     return;
@@ -121,7 +126,7 @@ void upCurrentMenu() {
     menuIndex = 2;
 }
 
-
+//Function called when the joystick is moved down
 void downCurrentMenu() {
   if (isPlaying) {
     return;
@@ -148,6 +153,7 @@ void downCurrentMenu() {
     menuIndex = 0;
 }
 
+//Joystick button reading
 bool buttonReadingPinJ() {
   bool returnValue = false;
   int buttonReading = !digitalRead(joystickButtonPin);
@@ -167,6 +173,8 @@ bool buttonReadingPinJ() {
   lastButtonStateJ = buttonReading;
   return returnValue;
 }
+
+//Push button reading
 bool buttonReadingPinB() {
   bool returnValue = false;
   int buttonReading = !digitalRead(pushButtonPin);
@@ -190,6 +198,8 @@ bool buttonReadingPinB() {
 bool buttonReading() {
   return (buttonReadingPinJ() || buttonReadingPinB());
 }
+
+//Implementation for specific functions of the button 
 void buttonControl(bool buttonPressed) {
   if (buttonPressed) {
     if (isPlaying) {
@@ -222,6 +232,7 @@ void buttonControl(bool buttonPressed) {
   }
 }
 
+//Interpretation for the joystick movement
 void joystickControl() {
   xValue = analogRead(xAxisPin);
   if (xValue < minThreshold && joyMoved == false) {

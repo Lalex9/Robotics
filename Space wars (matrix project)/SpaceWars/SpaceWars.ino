@@ -1,10 +1,20 @@
+/*
+ *      SPACE WARS
+ *  Arduino game for 8x8 LED Matrix with LCD display and joystick
+ *  
+ *  For game detalis please visit: 
+ *  https://github.com/Lalex9/Robotics/tree/master/Space%20wars%20(matrix%20project)
+ *  
+ *  2019 Alexandru Lungu
+ */
+
 #include "VariablesAndDeclarations.h"
 
 void setup() {
   // put your setup code here, to run once:
   lcd.begin(lcdWidth, 2);
-  pinMode(V0_PIN, OUTPUT); // PWN in loc de POTENTIOMETRU
-  analogWrite(V0_PIN, 90); // PWN in loc de POTENTIOMETRU
+  pinMode(V0_PIN, OUTPUT);
+  analogWrite(V0_PIN, 90); 
   pinMode(xAxisPin, INPUT);
   pinMode(yAxisPin, INPUT);
   pinMode(joystickButtonPin, INPUT_PULLUP);

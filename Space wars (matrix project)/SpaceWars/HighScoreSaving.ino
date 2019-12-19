@@ -1,3 +1,5 @@
+//EEPROM manipulations using the EEPROMAnything source code
+
 int readFromEEPROM() {
   EEPROM_readAnything(0, highScoreStruct);
 }

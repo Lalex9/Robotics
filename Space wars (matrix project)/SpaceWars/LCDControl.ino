@@ -1,3 +1,4 @@
+//Print the main menu on the LCD
 void menuPrinting() {
   if (isFreezed && localTime > 3000)
     return;
@@ -17,6 +18,7 @@ void menuPrinting() {
       isFreezed = true;
       score += 100;
       level++;
+      initialiseGame();
       return;
     }
   } else if (level == 4) {
@@ -51,6 +53,7 @@ void menuPrinting() {
   return;
 }
 
+//High Score menu printing
 void printSaveHighScore() {
   bool exitSave = false;
   if (millis() - blinkTime > blinkDelay) {
@@ -87,6 +90,7 @@ void printSaveHighScore() {
     lcd.print("    ");
 }
 
+//Game over text printing
 void gameOver() {
   readFromEEPROM();
   if (highScoreStruct.highScore < score) {
@@ -116,7 +120,7 @@ void gameOver() {
   }
 }
 
-
+//Main game function for the gameplay and information printing
 void playGame(bool refresh) {
   if (refresh) {
     lcd.clear();

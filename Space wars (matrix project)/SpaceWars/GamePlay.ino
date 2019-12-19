@@ -2,8 +2,9 @@ void initialiseGame() {
   for (int i = 0; i < matrixSize; i++)
     for (int j = 0; j < matrixSize; j++)
       mapOfEnemies[i][j] = 0;
+  for (int i = 0; i < maximumNumberOfRockets; i++)
+    rockets[i].isValid = false;
   pos = random(3, 5);
-  level = 0;
   lcd.clear();
   lc.clearDisplay(0);
   isPlaying = true;
@@ -12,6 +13,7 @@ void initialiseGame() {
   strcpy(playerName, "AAA");
 }
 
+//Creation of a new rocket
 void fireRocket() {
   Rocket newRocket;
   newRocket.isValid = true;
@@ -26,6 +28,7 @@ void fireRocket() {
   }
 }
 
+//Move up all the valid rockets and invalidate all the ones that hit an enemy or go off the screen
 void moveTheRockets() {
   for (int i = 0; i < maximumNumberOfRockets; i++) {
     if (rockets[i].isValid)
@@ -44,6 +47,7 @@ void moveTheRockets() {
   }
 }
 
+//Timed spawn of enemies
 void addEnemies() {
   if (millis() - lastEnemyWave + 100 * currentDifficulty + 50 * level> newEnemiesTime) {
     lastEnemyWave = millis();

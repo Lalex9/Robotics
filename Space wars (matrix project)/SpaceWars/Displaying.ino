@@ -4,6 +4,7 @@ void displayOnMatrix() {
   displayShip();
 }
 
+//Display the ship controled by the player
 void displayShip() {
   //lc.clearDisplay(0);
   lc.setLed(0, 6, pos, true);
@@ -14,6 +15,7 @@ void displayShip() {
     lc.setLed(0, 7, pos + 1, true);
 }
 
+//Display the currently flying rockets
 void displayRockets() {
   for (int i = 0; i < maximumNumberOfRockets; i++) {
     if (rockets[i].isValid)
@@ -21,6 +23,7 @@ void displayRockets() {
   }
 }
 
+//Display all the enemies as dots on the matrix
 void displayEnemies() {
   for (int i = 0; i < matrixSize; i++) {
     for (int j = 0; j < matrixSize; j++) {

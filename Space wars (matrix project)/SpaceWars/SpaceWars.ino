@@ -1,5 +1,6 @@
 /*
- *      SPACE WARS
+ *                         SPACE WARS
+ *      
  *  Arduino game for 8x8 LED Matrix with LCD display and joystick
  *  
  *  For game detalis please visit: 
@@ -29,6 +30,14 @@ void setup() {
     rockets[i] = { false, 0, 0, 0};
   }
   Serial.begin(9600);
+  lcd.setCursor(0, 0);
+  lcd.print("   Welcome to   ");
+  lcd.setCursor(0, 1);
+  lcd.print("   SPACE WARS  ");
+  // Delay used only for the welcome message
+  delay(4000);
+  lcd.clear();
+  lcd.setCursor(0,0);
   //clearEEPROM();
 }
 
